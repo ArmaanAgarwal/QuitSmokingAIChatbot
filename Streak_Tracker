@@ -1,0 +1,44 @@
+#0 is # of tasks, 1 is threshold fufilled or not, 2 is prevStreak
+data = []
+
+max_z_index = max(range(len(data)), key=lambda i: data[i][2])
+max_y_index = max(range(len(data)), key=lambda i: data[i][0])
+
+// Access the element with the maximum z value
+max_element_z = data[max_z_index] #max streak
+max_element_y = data[max_y_index] #max number of tasks
+// Print the maximum z value
+console.log(f"Maximum z value: {max_element_z[2]}")
+function update(tasks, threshold, prevStreak) {
+  const completedTasks = tasks >= threshold;
+  const streak = completedTasks ? prevStreak + 1 : 0;
+  return [tasks, completedTasks, streak];
+}
+
+// Example usage
+const tasksCompleted = 10;
+const taskThreshold = 5;
+const previousStreak = 2;
+
+const updatedData = update(tasksCompleted, taskThreshold, previousStreak);
+console.log(updatedData); // Output: [10, true, 3]
+function generateMessage(streak, max) {
+  if (streak === 0) {
+    return "Hey there! Every journey starts with a single step. Let's get this week going!";
+  } else if (streak < 3) {
+    return "You're on a roll with " ${streak} " days in a row and you've completed "${max}" tasks in one day! Keep it up!";
+  } else if (streak === 3) {
+    return "Wow! You've completed" ${streak} " days!"+ "and "${max}" tasks in one day!";
+  } else if (streak === 4) {
+    return "Almost there! You've conquered " ${streak} " out of 7 days this week along with " ${max}" tasks completed in one day!";
+  } else if (streak === 5) {
+    return "High five for an amazing " ${streak}" -day streak and " ${max} "tasks completed in one day! You're almost there!";
+  } else if (streak === 6) {
+    return "Wow! A nearly perfect week with " ${streak} " days completed and " ${max} " tasks completed in one day!. You're unstoppable!";
+  } else if (streak === 7) {
+    return "Congratulations! You've achieved a perfect 7-day streak this week!";
+  } else {
+    return `That's an impressive streak of ${streak} days! Keep exceeding your goals.`;
+  }
+}
+

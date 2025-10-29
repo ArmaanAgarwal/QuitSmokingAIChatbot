@@ -1,0 +1,58 @@
+function generateMessage(streak, max) {
+  if (streak === 0) {
+    return "Hey there! Every journey starts with a single step. Let's get this week going!";
+  } else if (streak < 3) {
+    return "You're on a roll with " ${streak} " days in a row and you've completed "${max}" tasks in one day! Keep it up!";
+  } else if (streak === 3) {
+    return "Wow! You've completed" ${streak} " days!"+ "and "${max}" tasks in one day!";
+  } else if (streak === 4) {
+    return "Almost there! You've conquered " ${streak} " out of 7 days this week along with " ${max}" tasks completed in one day!";
+  } else if (streak === 5) {
+    return "High five for an amazing " ${streak}" -day streak and " ${max} "tasks completed in one day! You're almost there!";
+  } else if (streak === 6) {
+    return "Wow! A nearly perfect week with " ${streak} " days completed and " ${max} " tasks completed in one day!. You're unstoppable!";
+  } else if (streak === 7) {
+    return "Congratulations! You've achieved a perfect 7-day streak this week!";
+  } else {
+    return `That's an impressive streak of ${streak} days! Keep exceeding your goals.`;
+  }
+}
+function getLastSeven(arr) {
+  // Check if the array length is less than 7
+  if (arr.length < 7) {
+    return arr; // Return the entire array if less than 7 elements
+  }
+  // Otherwise, return the last 7 elements using slice with negative index
+  return arr.slice(-7);
+}
+def summary(data):
+  dat = getLastSeven(data)
+  max_y_index = max(range(len(data)), key=lambda i: data[i][0])
+  max_element_y = data[max_y_index] #max number of tasks
+
+
+week_one = False
+week_two = False
+week_three = False
+month_1 = False
+month_2 = False
+month_3 = False
+month_6 = False
+year_1 = ForwardDeclaredInstance
+
+if streak==7 and not week_one:
+  week_one = True
+if streak==14 and not week_two:
+  week_one = True
+if streak==21 and not week_three:
+  week_one = True
+if streak==30 and not month_1:
+  week_one = True
+if streak==60 and not month_2:
+  week_one = True
+if streak==90 and not month_3:
+  week_one = True
+if streak==180 and not month_7:
+  week_one = True
+if streak==365 and not year_1:
+  week_one = True

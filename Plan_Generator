@@ -1,0 +1,50 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+import os
+import cv2
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+
+import tensorflow as tf
+from tensorflow.keras import layers, models
+from tensorflow.keras.models import model_from_json
+import math
+
+def sigmoid(x):
+  """
+  This function implements the sigmoid function.
+
+  Args:
+      x: The input value.
+
+  Returns:
+      The sigmoid of x.
+  """
+  return 1 / (1 + math.exp(-x))
+function plan(timesAWeek, motivation, smokingLength, reductionAmount, smokeOtherProducts, timeToReachGoal) {
+  const sigmoid = (x) => 1 / (1 + Math.exp(-x)); // Sigmoid function implementation
+
+  const defaultPlan = [
+    Math.round(timesAWeek * reductionAmount),
+    Math.round(timeToReachGoal),
+    motivation
+  ];
+  const targetPlan = [
+    Math.round(timesAWeek * reductionAmount * sigmoid(1 / motivation)),
+    Math.round(timeToReachGoal * sigmoid(1 / motivation)),
+    motivation + 1
+  ];
+  const safetyPlan = [
+    Math.round(timesAWeek * reductionAmount) + 1,
+    Math.round(timeToReachGoal),
+    2
+  ];
+  return [defaultPlan, targetPlan, safetyPlan];
+}
+
+const plans = plan(7, 4, 120, 0.5, 0, 8);
+
+console.log(plans);
